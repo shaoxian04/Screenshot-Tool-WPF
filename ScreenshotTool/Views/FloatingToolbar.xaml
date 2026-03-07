@@ -1,0 +1,45 @@
+<Window x:Class="ScreenshotTool.Views.FloatingToolbar"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Toolbar" Height="45" Width="360"
+        WindowStyle="None" AllowsTransparency="True" Background="Transparent"
+        Topmost="True" ShowInTaskbar="False" Focusable="False">
+    <Border Background="#FDFDFD" CornerRadius="12" BorderBrush="#E0E0E0" BorderThickness="1">
+        <StackPanel Orientation="Horizontal" Margin="4" HorizontalAlignment="Center">
+            <!-- Tool Buttons -->
+            <Button Style="{StaticResource ToolBtn}" Content="&#xEA5B;" Click="Tool_Click" Tag="Arrow" ToolTip="Arrow"/>
+            <Button Style="{StaticResource ToolBtn}" Content="&#xE735;" Click="Tool_Click" Tag="Rectangle" ToolTip="Rectangle"/>
+            <Button Style="{StaticResource ToolBtn}" Content="&#xE7B3;" Click="Tool_Click" Tag="Blur" ToolTip="Blur"/>
+            <Button Style="{StaticResource ToolBtn}" Content="&#xED63;" Click="Tool_Click" Tag="Freehand" ToolTip="Pen"/>
+            <Button Style="{StaticResource ToolBtn}" Content="&#xE8D2;" Click="Tool_Click" Tag="Text" ToolTip="Text"/>
+            
+            <Separator Margin="8,4" Background="#E0E0E0"/>
+            
+            <!-- Action Buttons -->
+            <Button Style="{StaticResource ToolBtn}" Content="&#xE7A7;" Click="Undo_Click" ToolTip="Undo"/>
+            <Button Style="{StaticResource ActionBtn}" Content="&#xE8FB;" Click="Capture_Click" Background="#E8F5E9" Foreground="#2E7D32" ToolTip="Done (Enter)"/>
+            <Button Style="{StaticResource ActionBtn}" Content="&#xE711;" Click="Exit_Click" Background="#FFEBEE" Foreground="#C62828" ToolTip="Exit (Esc)"/>
+        </StackPanel>
+    </Border>
+
+    <Window.Resources>
+        <Style x:Key="ToolBtn" TargetType="Button">
+            <Setter Property="Width" Value="34"/>
+            <Setter Property="Height" Value="34"/>
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="FontFamily" Value="Segoe MDL2 Assets"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#EEEEEE"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="ActionBtn" TargetType="Button" BasedOn="{StaticResource ToolBtn}">
+            <Setter Property="Width" Value="40"/>
+        </Style>
+    </Window.Resources>
+</Window>
