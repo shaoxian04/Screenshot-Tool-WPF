@@ -9,7 +9,8 @@ namespace ScreenshotTool.Services
         {
             if (bitmap != null)
             {
-                Clipboard.SetImage(bitmap);
+                // Explicitly use WPF Clipboard
+                System.Windows.Clipboard.SetImage(bitmap);
             }
         }
     }

@@ -1,3 +1,4 @@
+using System;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -17,7 +18,7 @@ namespace ScreenshotTool.Views
 
         private void Tool_Click(object sender, RoutedEventArgs e)
         {
-            if (sender is Button btn && btn.Tag is string tool)
+            if (sender is System.Windows.Controls.Button btn && btn.Tag is string tool)
             {
                 ToolSelected?.Invoke(tool);
             }
